@@ -1,0 +1,81 @@
+:root{
+    --bg-primary : #0f0f13;
+    --bg-secondary: #16161d;;
+    --text-primary : #ffffff;
+    --text-muted : #888888;
+    --accent : #ff0080;
+    --border : rgba(255, 255, 255, 0.07);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.app{
+    display: flex;
+    height: 100vh;
+}
+
+
+
+
+/* sidebar section  */
+.sidebar{
+    width: 220px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    flex-shrink: 0;
+}
+
+.logo{
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 0 20px 16px;
+    letter-spacing: 1px;
+}
+
+.nav-links{
+    list-style: none;
+}
+.nav-links li{
+    padding: 10px 20px;
+    font-size: 14px;
+    columns: var(--text-muted);
+    cursor: pointer;
+}
+.nav-links li:hover{
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-links li.active {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 2px solid var(--accent);
+}
+
+/* main section  */
+.main{
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 1; 
+}
