@@ -9,7 +9,7 @@ let timerId = null; // for interval reference
 function updateDisplay(){
     const min = Math.floor(timeLeft/60);
     const sec = timeLeft%60 ;
-    console.log(String(min).padStart(2, "0") + ":" + String(sec).padStart(2,"0"));
+    
     document.querySelector(".timer-display").textContent = String(min).padStart(2, "0") + ":" + String(sec).padStart(2,"0"); // show in 25:00 format on screen.
 }
 
