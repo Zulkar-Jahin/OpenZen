@@ -106,8 +106,10 @@ body{
 }
 
 
-
-.section {
+.section{
+    display: none;
+}
+.section.active {
     flex: 1;
     display: flex;
     flex-direction: column;

@@ -15,9 +15,9 @@
         <nav class="sidebar">
             <div class="logo">OpenZen</div>
             <ul class="nav-links">
-                <li class="active">Focus</li>
-                <li>To-do</li>
-                <li>Kanban</li>
+                <li class="active" onclick="showSection('focus', 'Focus', this)">Focus</li>
+                <li onclick="showSection('todo', 'To-Do', this)">To-do</li>
+                <li onclick="showSection('kanban', 'Kanban', this)">Kanban</li>
             </ul>
         </nav>
 
@@ -33,11 +33,11 @@
                 <button class="theme-btn">☀</button>
             </header>
 
-            <section class="section" id="section-focus">
+            <section class="section active" id="section-focus">
                 <div class="presets">
                     <button class="preset-btn active-preset" onclick="setPreset(25, this)">25 min</button>
                     <button class="preset-btn" onclick="setPreset(15, this)">15 min</button>
-                    <button class="preset-btn" onclick="setPreset(0.1, this)">5 min</button>
+                    <button class="preset-btn" onclick="setPreset(5, this)">5 min</button>
                 </div>
                 <div class="timer-circle">
                     <svg class="progress-ring" viewBox="0 0 220 220">
@@ -46,7 +46,7 @@
                     </svg>
                     <div class="circle-center">
                         <div class="timer-display">25:00</div>
-                        <div class="timer-lebel">focus time</div>
+                        <div class="timer-label">focus time</div>
                     </div>
                 </div>
 
@@ -57,6 +57,12 @@
                 </div>
             </section>
 
+            <section class="section" id="section-todo">
+                <p>To-Do coming soon!</p>
+            </section>
+            <section class="section" id="section-kanban">
+                <p>Kanban is coming soon!</p>
+            </section>
 
         </div>
 

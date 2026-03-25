@@ -92,8 +92,6 @@ function setPreset(minutes, btn){
 }
 
 
-
-
 // Claude AI
 // sound play for session end 
 function playSound() {
@@ -121,6 +119,29 @@ function playSound() {
     beep.stop(audio.currentTime + 2.5);
 }
 
+
+//show sections on click
+function showSection(sectionName, title, navItem){
+
+    // update header title 
+    document.querySelector(".page-title").textContent = `${title}`;
+
+
+    // hide all other sections 
+    document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("active");
+    });
+    // show the selected section
+    document.querySelector(`#section-${sectionName}`).classList.add("active");
+    
+    
+    // update active navItem
+    document.querySelectorAll(".nav-links li").forEach(li => {
+        li.classList.remove("active");
+    });
+    // active the selected navItem 
+    navItem.classList.add("active");
+}
 
 
 
