@@ -43,6 +43,7 @@ function startPause(){
                 clearInterval(timerId);
                 timeRunning = false;
                 document.querySelector("#btn-start").textContent = "Start";
+                playSound();
             }            
         }, 1000);
 
@@ -68,6 +69,7 @@ function skip(){
     timeLeft = 0;
     document.querySelector("#btn-start").textContent = "Start";
     updateDisplay();
+    playSound();
 }
 
 
@@ -88,5 +90,38 @@ function setPreset(minutes, btn){
     });
     btn.classList.add("active-preset");
 }
+
+
+
+
+// Claude AI
+// sound play for session end 
+function playSound() {
+    // initialize browser sound engine
+    const audio = new AudioContext();
+    
+    // create sound source with a fixed frequency
+    const beep = audio.createOscillator();
+    
+    // create volume controller
+    const volume = audio.createGain();
+
+    // connect source → volume → speaker
+    beep.connect(volume);
+    volume.connect(audio.destination);
+
+    // set pitch of the beep
+    beep.frequency.value = 580;
+    
+    // fade out over 1.5 seconds
+    volume.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + 1.5);
+
+    // play and stop after 1.5 seconds
+    beep.start();
+    beep.stop(audio.currentTime + 2.5);
+}
+
+
+
 
 updateDisplay();
