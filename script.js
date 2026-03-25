@@ -1,3 +1,4 @@
+let totalTime = 25*60;
 let timeLeft = 25*60;
 let timeRunning = false;
 let timerId = null; // for interval reference
@@ -46,7 +47,7 @@ function startPause(){
 function reset(){
     clearInterval(timerId);
     timeRunning = false;
-    timeLeft = 25 * 60;
+    timeLeft = totalTime;
     document.querySelector("#btn-start").textContent = "Start";
 
     updateDisplay();
@@ -62,5 +63,22 @@ function skip(){
 }
 
 
+// preset buttons
+function setPreset(minutes, btn){
+    totalTime = minutes * 60;
+    
+    clearInterval(timerId);
+    timeLeft = minutes * 60;
+    timeRunning = false;
+    document.querySelector("#btn-start").textContent = "Start";
+    updateDisplay();
+
+
+    // remove all active-preset and make only this button active
+    document.querySelectorAll(".preset-btn").forEach(e => {
+        e.classList.remove("active-preset");
+    });
+    btn.classList.add("active-preset");
+}
 
 updateDisplay();

@@ -6,6 +6,7 @@
     --accent : #ff0080;
     --border : rgba(255, 255, 255, 0.07);
     --bg-card: #1c1c26;
+    --active : #00ff59;
 }
 
 
@@ -114,6 +115,25 @@ body{
     justify-content: center;
 }
 
+
+.presets{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+.preset-btn{
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+}
+.active-preset{
+    border-color: var(--accent);
+    color: var(--accent)
+}
 
 .timer-circle {
     width: 220px;
