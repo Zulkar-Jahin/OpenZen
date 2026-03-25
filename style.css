@@ -6,7 +6,7 @@
     --accent : #ff0080;
     --border : rgba(255, 255, 255, 0.07);
     --bg-card: #1c1c26;
-    --active : #00ff59;
+    --active : #0ee2c6dc;
 }
 
 
@@ -135,16 +135,45 @@ body{
     color: var(--accent)
 }
 
+
 .timer-circle {
+    position: relative;
     width: 220px;
     height: 220px;
-    border-radius: 50%;
-    border: 8px solid var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-ring{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
+    /* position 12 in clock  */
+    transform: rotate(90deg) scaleX(-1); 
+}
+.ring-bg{
+    font: none;
+    stroke: var(--bg-card);
+    stroke-width: 8;
+}
+.ring-progress{  /* changes the remaining time length */
+    fill: none;
+    stroke: var(--active);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 628; /* circumference value = 2*PI*100  */
+}
+.circle-center{
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+
 .timer-display {
     font-size: 42px;
     font-weight: 700;

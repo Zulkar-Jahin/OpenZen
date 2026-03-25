@@ -1,3 +1,5 @@
+const circumference = 2 * Math.PI *  100; // r=100
+
 let totalTime = 25*60;
 let timeLeft = 25*60;
 let timeRunning = false;
@@ -7,9 +9,15 @@ let timerId = null; // for interval reference
 // update display in focus-time circle 
 function updateDisplay(){
     const min = Math.floor(timeLeft/60);
-    const sec = timeLeft%60 ;
+    const sec = timeLeft%60;
     
     document.querySelector(".timer-display").textContent = String(min).padStart(2, "0") + ":" + String(sec).padStart(2,"0"); // show in 25:00 format on screen.
+
+    // circle progress update 
+    const remainingTimeRatio = timeLeft/totalTime; /* this portion is to hide form 100% circular line */
+    const offset = circumference * (1-remainingTimeRatio); /* shows only remaining time in circular line */
+    
+    document.querySelector(".ring-progress").style.strokeDashoffset = offset;
 }
 
 // start and pause function 

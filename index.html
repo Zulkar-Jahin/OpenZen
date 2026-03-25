@@ -40,8 +40,14 @@
                     <button class="preset-btn" onclick="setPreset(5, this)">5 min</button>
                 </div>
                 <div class="timer-circle">
-                    <div class="timer-display">25:00</div>
-                    <div class="timer-lebel">focus time</div>
+                    <svg class="progress-ring" viewBox="0 0 220 220">
+                        <circle class="ring-bg" cx="110" cy="110" r="100"/>
+                        <circle class="ring-progress" cx="110" cy="110" r="100"/>
+                    </svg>
+                    <div class="circle-center">
+                        <div class="timer-display">25:00</div>
+                        <div class="timer-lebel">focus time</div>
+                    </div>
                 </div>
 
                 <div class="timer-buttons">
