@@ -1,5 +1,3 @@
-console.log("script is running.");
-
 let timeLeft = 25*60;
 let timeRunning = false;
 let timerId = null; // for interval reference
@@ -15,10 +13,18 @@ function updateDisplay(){
 
 // start and pause function 
 function startPause(){
+    // case handel : already 00:00
+    if(timeLeft<=0) 
+    {
+        reset();
+        return;
+    }
+
+    
     if(timeRunning){ // when pause button clicked
         clearInterval(timerId);
         timeRunning = false;
-        document.querySelector(".btn-primary").textContent = "Start";
+        document.querySelector("#btn-start").textContent = "Start";
     } 
     else{ // when start button clicked
         timerId = setInterval(() => {
@@ -27,25 +33,34 @@ function startPause(){
             if(timeLeft<=0){
                 clearInterval(timerId);
                 timeRunning = false;
-                document.querySelector(".btn-primary").textContent = "Start";
+                document.querySelector("#btn-start").textContent = "Start";
             }            
         }, 1000);
 
         timeRunning = true;
-        document.querySelector(".btn-primary").textContent = "Pause";
+        document.querySelector("#btn-start").textContent = "Pause";
     }
 }
-
 
 // reset function 
 function reset(){
     clearInterval(timerId);
     timeRunning = false;
     timeLeft = 25 * 60;
-    document.querySelector(".btn-primary").textContent = "Start";
+    document.querySelector("#btn-start").textContent = "Start";
 
     updateDisplay();
 }
+
+// skip function 
+function skip(){
+    clearInterval(timerId);
+    timeRunning = false;
+    timeLeft = 0;
+    document.querySelector("#btn-start").textContent = "Start";
+    updateDisplay();
+}
+
 
 
 updateDisplay();
