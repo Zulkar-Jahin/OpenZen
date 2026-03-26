@@ -1,3 +1,5 @@
+console.log("kaj kore");
+
 const circumference = 2 * Math.PI *  100; // r=100
 
 let totalTime = 25*60;
@@ -5,6 +7,11 @@ let timeLeft = 25*60;
 let timeRunning = false;
 let timerId = null; // for interval reference
 
+
+// toggle function 
+function toggleTheme(){
+    document.body.classList.toggle("light-mode");
+}
 
 // update display in focus-time circle 
 function updateDisplay(){
