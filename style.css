@@ -135,6 +135,11 @@ body.light-mode {
     align-items: center;
     justify-content: center;
 }
+#section-todo{
+    justify-content: flex-start;
+    padding: 32px;
+    overflow-y: auto;
+}
 
 
 .presets{
