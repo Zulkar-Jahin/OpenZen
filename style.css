@@ -7,11 +7,7 @@
     --border : rgba(255, 255, 255, 0.07);
     --bg-card: #1c1c26;
     --text-bright : #9ca3af;
-    /* --active : #0ee2c6dc; */
-    /* --active : #0f172a ;  */
-    /* --active : #020617 ;  */
     --active : #0b2f2a ; 
-    /* --active : #111827 ;  */
 }
 
 
@@ -213,15 +209,13 @@ body.light-mode {
     letter-spacing: 2px;
 }
 
-
-
-
-
 .timer-buttons{
     display: flex;
     gap: 12px;
     margin-top: 32px;
 }
+
+
 .btn-primary{
     padding: 10px 28px;
     background-color: var(--accent);
@@ -240,4 +234,23 @@ body.light-mode {
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
+}
+
+
+.todo-input-row{
+    display: flex;
+    gap: 10px;
+    width: 100px;
+    max-width: 600px;
+    margin-bottom: 24px;
+}
+
+.todo-input{
+    float: 1;
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
 }
