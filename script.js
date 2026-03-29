@@ -212,3 +212,11 @@ function toggleTask(taskId){
 
 
 updateDisplay();
+
+// add to task list on Enter key pressed
+document.querySelector(".todo-input").addEventListener("keydown", function(elem){
+    if(elem.key === "Enter")
+    {
+        addTask();
+    }
+});
