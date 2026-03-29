@@ -172,6 +172,7 @@ function showTask() {
 function deleteTask(taskId) {
     tasks = tasks.filter(value => value.id != taskId);
     showTask();
+    saveTaskLocalStorage(); // save to localstorage
 }
 
 
@@ -194,6 +195,7 @@ function addTask() {
     tasks.push(newTask);
     input.value = "";
     showTask();
+    saveTaskLocalStorage(); // save to localstorage
 }
 
 
@@ -207,11 +209,33 @@ function toggleTask(taskId){
         }
     }
     showTask();
+    saveTaskLocalStorage(); // save to localstorage
 }
 
 
 
+// save data to localstorage
+function saveTaskLocalStorage(){
+    localStorage.setItem("openzen-tasks", JSON.stringify(tasks) );
+}
+
+// load data from localstorage
+function loadTaskLocalStorage() {
+    const savedTasks = localStorage.getItem("openzen-tasks");
+    // for first time it is null
+    if(savedTasks != null){
+        tasks = JSON.parse(savedTasks); 
+        showTask();
+    }
+}
+
+
+
+
 updateDisplay();
+
+
+
 
 // add to task list on Enter key pressed
 document.querySelector(".todo-input").addEventListener("keydown", function(elem){
@@ -220,3 +244,8 @@ document.querySelector(".todo-input").addEventListener("keydown", function(elem)
         addTask();
     }
 });
+
+
+
+
+loadTaskLocalStorage(); // for every reload of page.
