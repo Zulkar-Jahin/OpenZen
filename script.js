@@ -161,7 +161,7 @@ function showTask() {
 
     // joined all task items from `tasks` array
     todolist.innerHTML = tasks.map(task =>
-        `<div class="task-item" id="task-${task.id}">
+        `<div class="task-item  ${task.done ? "done" : "" }  " id="task-${task.id}"  onclick="toggleTask(${task.id})">
         <span class="task-name">${task.name}</span>
         <button class="btn-delete-task" onclick="deleteTask(${task.id})">Delete</button>
         </div>`).join('');
@@ -186,7 +186,7 @@ function addTask() {
 
     // create a new task object 
     const newTask = {
-        id: Date.now(), //currentstamp time -> unique
+        id: Date.now(), //currentstamp time -> unique id
         name: taskName,
         done: false
     };
@@ -197,8 +197,17 @@ function addTask() {
 }
 
 
-
-
+// alter active/inactive tasks 
+function toggleTask(taskId){
+    for(let i=0; i<tasks.length; i++)
+    {
+        if(taskId == tasks[i].id)
+        {
+            tasks[i].done = !tasks[i].done;
+        }
+    }
+    showTask();
+}
 
 
 
