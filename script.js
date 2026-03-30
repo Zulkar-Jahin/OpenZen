@@ -265,6 +265,12 @@ function loadKanbanLocalStorage(){
 function showKanbanTask(columnId){
     const tasksDiv = document.querySelector(`#kanban-${columnId}`);
 
+    // first state where task added
+    if(kanbanTasks[columnId].length === 0){
+        tasksDiv.innerHTML = `<p class="kanban-empty">No tasks yet</p>`
+        return;
+    }
+
     tasksDiv.innerHTML = kanbanTasks[columnId].map(task => `<div class="kanban-task-card">${task.name}</div>`).join("");
 }
 
@@ -327,3 +333,10 @@ document.querySelector(".todo-input").addEventListener("keydown", function(elem)
 // for every reload of page. (Tasks are saved to loacl storage)
 loadTaskLocalStorage(); 
 loadKanbanLocalStorage(); 
+
+
+// for initial time kanbanTasks is null
+showKanbanTask('todo');
+showKanbanTask('progress');
+showKanbanTask('review');
+showKanbanTask('done');
