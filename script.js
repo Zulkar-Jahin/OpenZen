@@ -47,21 +47,24 @@ function startPause() {
         clearInterval(timerId);
         timeRunning = false;
         document.querySelector("#btn-start").textContent = "Start";
+        document.querySelector("#timer-label").textContent = "paused";
     }
     else { // when start button clicked
         timerId = setInterval(() => {
             timeLeft--;
             updateDisplay();
-            if (timeLeft <= 0) {
+            if (timeLeft <= 0) { //time's up
                 clearInterval(timerId);
                 timeRunning = false;
                 document.querySelector("#btn-start").textContent = "Start";
+                document.querySelector("#timer-label").textContent = "time's up!";
                 playSound();
             }
         }, 1000);
 
         timeRunning = true;
         document.querySelector("#btn-start").textContent = "Pause";
+        document.querySelector("#timer-label").textContent = "focusing..."
     }
 }
 
@@ -71,6 +74,7 @@ function reset() {
     timeRunning = false;
     timeLeft = totalTime;
     document.querySelector("#btn-start").textContent = "Start";
+    document.querySelector("#timer-label").textContent = "focus time";
 
     updateDisplay();
 }
@@ -81,6 +85,7 @@ function skip() {
     timeRunning = false;
     timeLeft = 0;
     document.querySelector("#btn-start").textContent = "Start";
+    document.querySelector("#timer-label").textContent = "session skipped!";
     updateDisplay();
     playSound();
 }
@@ -221,7 +226,6 @@ function toggleTask(taskId){
 }
 
 
-
 // save data to localstorage
 function saveTaskLocalStorage(){
     localStorage.setItem("openzen-tasks", JSON.stringify(tasks) );
@@ -305,13 +309,9 @@ function addKanbanTask(columnId){
     });
 }
 
+
+
 updateDisplay();
-
-
-
-
-
-
 
 
 // add to task list on Enter key pressed

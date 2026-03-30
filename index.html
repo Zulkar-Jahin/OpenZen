@@ -20,12 +20,6 @@
                 <li onclick="showSection('kanban', 'Kanban', this)">Kanban</li>
             </ul>
         </nav>
-
-
-
-        
-
-        
         
         <div class="main">
             <header class="header">
@@ -46,7 +40,7 @@
                     </svg>
                     <div class="circle-center">
                         <div class="timer-display">25:00</div>
-                        <div class="timer-label">focus time</div>
+                        <div class="timer-label" id="timer-label">focus time</div>
                     </div>
                 </div>
 
@@ -62,13 +56,11 @@
                     <input type="text" class="todo-input" placeholder="Add a new task...">
                     <button class="btn-primary" onclick="addTask()"> Add </button>
                 </div>   
-                <div class="todo-list" id="todo-list">
-                    
-                    
+                <div class="todo-list" id="todo-list">           
                 </div> 
             </section>
 
-
+            
             <section class="section" id="section-kanban">
 
                 <div class="kanban-board">
@@ -97,14 +89,11 @@
                         <button class="kanban-add-btn" onclick="addKanbanTask('done')">+ Add</button>
                     </div>
 
-
                 </div>
-
 
             </section>
 
         </div>
-
 
     </div>
 

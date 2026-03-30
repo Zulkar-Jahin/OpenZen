@@ -67,17 +67,18 @@ body.light-mode {
 .nav-links li{
     padding: 10px 20px;
     font-size: 14px;
-    columns: var(--text-muted);
+    color: var(--text-muted);
     cursor: pointer;
+    transition: color 0.3s, background 0.3s;
 }
 .nav-links li:hover{
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .nav-links li.active {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 0, 128, 0.08);
     border-left: 2px solid var(--accent);
 }
 
@@ -295,7 +296,12 @@ body.light-mode {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: opacity 0.2s transform 0.1s;
 }
+.btn-primary:hover{
+    opacity: 0.85;
+}
+
 .btn-secondary{
     padding: 10px 20px;
     background: var(--bg-card);
@@ -304,6 +310,14 @@ body.light-mode {
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
+}
+.btn-secondary:hover{
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: scale(0.97);
 }
 
 
