@@ -70,7 +70,37 @@
 
 
             <section class="section" id="section-kanban">
-                <p>Kanban is coming soon!</p>
+
+                <div class="kanban-board">
+
+                    <div class="kanban-column" id="col-todo">
+                        <div class="kanban-col-title">To-Do</div>
+                        <div class="kanban-tasks" id="kanban-todo"></div>
+                        <button class="kanban-add-btn" onclick="addKanbanTask('todo')">+ Add</button>
+                    </div>
+                    
+                    <div class="kanban-column" id="col-inprogress">
+                        <div class="kanban-col-title">In Progress</div>
+                        <div class="kanban-tasks" id="kanban-progress"></div>
+                        <button class="kanban-add-btn" onclick="addKanbanTask('progress')">+ Add</button>
+                    </div>
+
+                    <div class="kanban-column" id="col-review">
+                        <div class="kanban-col-title">Review</div>
+                        <div class="kanban-tasks" id="kanban-review"></div>
+                        <button class="kanban-add-btn" onclick="addKanbanTask('review')">+ Add</button>
+                    </div>
+                    
+                    <div class="kanban-column" id="col-done">
+                        <div class="kanban-col-title">Done</div>
+                        <div class="kanban-tasks" id="kanban-done"></div>
+                        <button class="kanban-add-btn" onclick="addKanbanTask('done')">+ Add</button>
+                    </div>
+
+
+                </div>
+
+
             </section>
 
         </div>

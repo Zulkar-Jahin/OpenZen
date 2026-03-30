@@ -1,5 +1,13 @@
 let tasks = []; //store all task in this array
 
+// store kanban tasks from each column 
+let kanbanTasks = {
+    todo : [],
+    progress : [],
+    review : [],
+    done: []
+};
+
 const circumference = 2 * Math.PI * 100; // r=100
 
 let totalTime = 25 * 60;
@@ -175,7 +183,7 @@ function deleteTask(taskId) {
     saveTaskLocalStorage(); // save to localstorage
 }
 
-
+// add task to To-do section
 function addTask() {
     const input = document.querySelector(".todo-input");
     const taskName = input.value.trim();
@@ -230,9 +238,58 @@ function loadTaskLocalStorage() {
 }
 
 
+// show kanban tasks list
+function showKanbanTask(columnId){
+    const tasksDiv = document.querySelector(`#kanban-${columnId}`);
 
+    tasksDiv.innerHTML = kanbanTasks[columnId].map(task => `<div class="kanban-task-card">${task.name}</div>`).join("");
+}
+
+
+// add task to Kanban column
+function addKanbanTask(columnId){
+    const tasksDiv = document.querySelector(`#kanban-${columnId}`);
+
+    // create a input box 
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "kanban-input";
+    input.placeholder = "Task name..."
+    tasksDiv.appendChild(input);
+    // move cursor auutomatically to inpt box 
+    input.focus();
+
+    // if Enter pressed - save the task 
+    input.addEventListener("keydown", function(e){
+        
+        if(e.key === "Enter"){
+            const taskName = input.value.trim();
+            
+            // if the new task is empty - ignore 
+            if(taskName !== ""){
+                kanbanTasks[columnId].push({
+                    id : Date.now(), //unique time for all
+                    name : taskName
+                });
+                showKanbanTask(columnId);
+            }
+
+            // remove after adding to list
+            input.remove();
+        }
+
+        // on Escape - cancel 
+        if(e.key == "Escape"){
+            input.remove();
+        }
+    });
+}
 
 updateDisplay();
+
+
+
+
 
 
 
