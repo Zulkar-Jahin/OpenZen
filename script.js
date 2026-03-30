@@ -238,6 +238,25 @@ function loadTaskLocalStorage() {
 }
 
 
+// sava kanban tasks data to localstorage
+function saveKanbanLocalStorage(){
+    localStorage.setItem("openzen-kanban-tasks", JSON.stringify(kanbanTasks));
+}
+
+// load kanban data from localstorage
+function loadKanbanLocalStorage(){
+    const savedKanban = localStorage.getItem("openzen-kanban-tasks");
+    // for first time it will be null 
+    if(savedKanban != null){
+        kanbanTasks = JSON.parse(savedKanban);
+        showKanbanTask("todo");
+        showKanbanTask("progress");
+        showKanbanTask("review");
+        showKanbanTask("done");
+    }
+}
+
+
 // show kanban tasks list
 function showKanbanTask(columnId){
     const tasksDiv = document.querySelector(`#kanban-${columnId}`);
@@ -272,6 +291,7 @@ function addKanbanTask(columnId){
                     name : taskName
                 });
                 showKanbanTask(columnId);
+                saveKanbanLocalStorage(); // save to local storage, after adding newtask
             }
 
             // remove after adding to list
@@ -304,5 +324,6 @@ document.querySelector(".todo-input").addEventListener("keydown", function(elem)
 
 
 
-
-loadTaskLocalStorage(); // for every reload of page.
+// for every reload of page. (Tasks are saved to loacl storage)
+loadTaskLocalStorage(); 
+loadKanbanLocalStorage(); 
